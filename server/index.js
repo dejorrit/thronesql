@@ -3,19 +3,30 @@ const expressGraphql = require('express-graphql')
 const schema = require('./schema.js')
 const data = require('./data.js')
 
-function getCharacter (args) {
-  return data.characters.filter(character => {
-    return character.id === args.id
-  })[0]
+function getCharacters () {
+  return data.characters.map(character => ({
+    ...character,
+    houses: character.house_ids ? character.house_ids.map(id => getHouse({ id })) : []
+  }))
 }
 
-function getCharacters () {
-  return data.characters
+function getCharacter (args) {
+  return getCharacters().find(({ id }) => id === args.id)
+}
+
+function getHouses () {
+  return data.houses
+}
+
+function getHouse (args) {
+  return getHouses().find(({ id }) => id === args.id)
 }
 
 const root = {
+  characters: getCharacters,
   character: getCharacter,
-  characters: getCharacters
+  houses: getHouses,
+  house: getHouse
 }
 
 const app = express()

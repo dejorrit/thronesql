@@ -1,6 +1,6 @@
 const characters = require('./datasets/characters.json')
+const houses = require('./datasets/houses.json')
 const locations = []
-const houses = []
 
 module.exports = {
   characters,

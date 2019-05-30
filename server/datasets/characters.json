@@ -5,7 +5,14 @@
   },
   {
     "id": "36280c4e-df86-4262-be1b-e10a4d457647",
-    "name": "Aegon Targaryen"
+    "name": "Aegon Targaryen",
+    "house_ids": ["20515b28-a338-4fcd-859f-74538bc1df5c"],
+    "parent_ids": [],
+    "child_ids": [],
+    "sibling_ids": [],
+    "marriedOrEngagedWith_ids": [],
+    "killedBy_ids": [],
+    "killed_ids": []
   },
   {
     "id": "4dd3f595-68bf-43b8-a3dd-c83cd141abbd",
