@@ -10,14 +10,20 @@ const schema = buildSchema(`
   type Character {
     id: ID!
     name: String!
+    nickname: String
     isRoyal: Boolean!
-    isKilled: Boolean!
-    houses: [House!]
-    parents: [Character!]
-    children: [Character!]
-    siblings: [Character!]
-    killedBy: [Character!]
+    houses: [House]
+    parents: [SubCharacter]
+    children: [SubCharacter]
+    siblings: [SubCharacter]
+    killed: [SubCharacter]
+    killedBy: [SubCharacter]
+    marriedOrEngagedWith: [SubCharacter]
   },
+  type SubCharacter {
+    id: ID!
+    name: String!
+  }
   type House {
     id: ID!
     name: String!

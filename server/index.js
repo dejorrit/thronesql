@@ -4,14 +4,30 @@ const schema = require('./schema.js')
 const data = require('./data.js')
 
 function getCharacters () {
-  return data.characters.map(character => ({
-    ...character,
-    houses: character.house_ids ? character.house_ids.map(id => getHouse({ id })) : []
-  }))
+  return data.characters.map(character => getCharacter({ id: character.id }))
 }
 
 function getCharacter (args) {
-  return getCharacters().find(({ id }) => id === args.id)
+  const character = data.characters.find(({ id }) => id === args.id)
+
+  return character ? {
+    ...character,
+    houses: character.house_ids ? character.house_ids.map(id => getHouse({ id })) : [],
+    parents: character.parent_ids ? character.parent_ids.map(id => getSubCharacter({ id })) : [],
+    children: character.child_ids ? character.child_ids.map(id => getSubCharacter({ id })) : [],
+    siblings: character.sibling_ids ? character.sibling_ids.map(id => getSubCharacter({ id })) : [],
+    killed: character.killed_ids ? character.killed_ids.map(id => getSubCharacter({ id })) : [],
+    killedBy: character.killedBy_ids ? character.killedBy_ids.map(id => getSubCharacter({ id })) : [],
+    marriedOrEngagedWith: character.marriedOrEngagedWith_ids ? character.marriedOrEngagedWith_ids.map(id => getSubCharacter({ id })) : []
+  } : null
+}
+
+function getSubCharacter (args) {
+  const character = data.characters.find(({ id }) => id === args.id)
+
+  return character ? {
+    ...character
+  } : null
 }
 
 function getHouses () {
@@ -19,7 +35,7 @@ function getHouses () {
 }
 
 function getHouse (args) {
-  return getHouses().find(({ id }) => id === args.id)
+  return data.houses.find(({ id }) => id === args.id)
 }
 
 const root = {
