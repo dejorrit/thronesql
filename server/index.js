@@ -18,6 +18,8 @@ function getCharacter (args) {
     siblings: character.sibling_ids ? character.sibling_ids.map(id => getSubCharacter({ id })) : [],
     killed: character.killed_ids ? character.killed_ids.map(id => getSubCharacter({ id })) : [],
     killedBy: character.killedBy_ids ? character.killedBy_ids.map(id => getSubCharacter({ id })) : [],
+    serves: character.serves_ids ? character.serves_ids.map(id => getSubCharacter({ id })) : [],
+    servedBy: character.servedBy_ids ? character.servedBy_ids.map(id => getSubCharacter({ id })) : [],
     marriedOrEngagedWith: character.marriedOrEngagedWith_ids ? character.marriedOrEngagedWith_ids.map(id => getSubCharacter({ id })) : []
   } : null
 }

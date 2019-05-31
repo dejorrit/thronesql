@@ -13,14 +13,16 @@ const schema = buildSchema(`
     nickname: String
     isRoyal: Boolean!
     houses: [House]
-    parents: [SubCharacter]
-    children: [SubCharacter]
-    siblings: [SubCharacter]
-    killed: [SubCharacter]
-    killedBy: [SubCharacter]
-    marriedOrEngagedWith: [SubCharacter]
+    parents: [RelatedCharacter]
+    children: [RelatedCharacter]
+    siblings: [RelatedCharacter]
+    marriedOrEngagedWith: [RelatedCharacter]
+    killed: [RelatedCharacter]
+    killedBy: [RelatedCharacter]
+    serves: [RelatedCharacter]
+    servedBy: [RelatedCharacter]
   },
-  type SubCharacter {
+  type RelatedCharacter {
     id: ID!
     name: String!
   }
