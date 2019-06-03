@@ -24,6 +24,7 @@ const typeDefs = `
   type House {
     id: ID!
     name: String!
+    characters: [Character]
   }
 `
 
