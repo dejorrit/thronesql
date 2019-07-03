@@ -14,7 +14,7 @@ Game of Thrones GraphQL mock server
 
 Your ThronesQL server should now be running on http://localhost:4000/graphql. You should see the GraphiQL interface there.
 
-## Type definitions
+## Types
 
 ```graphql
 type Character {
@@ -40,7 +40,7 @@ type House {
 }
 ```
 
-## Example query
+## Example queries
 
 ### Get all characters
 
@@ -65,9 +65,9 @@ query character {
 }
 ```
 
-## Nothing is perfect, so please contribute
+## Nothing is perfect
 
-This ThronesQL server is one big experiment and still in progress. If you'd like to contribute: please do so!
+This ThronesQL server is a far from perfect experiment and still in progress. If you'd like to contribute: please do so!
 
 ## Thanks
 
